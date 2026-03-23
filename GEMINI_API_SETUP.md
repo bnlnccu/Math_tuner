@@ -1,24 +1,39 @@
-# Gemini API Key Setup Guide
+# 專題環境建置作業：申請 Gemini 免費 API Key 指南
 
-## Introduction
-This guide will help you set up your Gemini API key to use with the Math Tuner application.
+本專題將使用 Google 的 Gemini 大語言模型作為後端邏輯引擎。為了讓大家能在本地端順利運行程式碼，請務必在開始開發前，依照以下步驟申請你專屬的 API Key。
 
-## Steps to Get Your API Key
-1. **Create a Gemini Account**  
-   If you don't already have an account, go to the [Gemini website](https://gemini.com/) and sign up.
+**⚠️ 重要警告：** 這把 API Key 就像是你家大門的鑰匙，**絕對不可以**將它寫死在公開的程式碼中，也**絕對不可以**上傳到 GitHub。請一律使用「環境變數 (Environment Variables)」來讀取。
 
-2. **Log In to Your Account**  
-   After creating your account, log in to the Gemini platform.
+---
 
-3. **Access API Settings**  
-   Navigate to your account settings, and find the API section.
+## 步驟一：登入 Google AI Studio
 
-4. **Create an API Key**  
-   Follow the prompts to generate a new API key. Ensure you save it securely, as you'll need this key to access the Gemini services.
+1. 請打開瀏覽器，前往 [Google AI Studio 官方網站](https://aistudio.google.com/)。
+2. 使用你的 Google 帳號（建議使用含有 Google One 訂閱或常用的主力帳號）進行登入。
 
-## Usage Instructions
-- Insert your API key in the Math Tuner application configuration settings to enable the integration with Gemini.
-- Ensure your key has the correct permissions for the operations you need.
+3. 登入後，如果系統跳出任何服務條款 (Terms of Service) 視窗，請閱讀後勾選同意並繼續。
 
-## Conclusion
-With your API key set up, you're ready to use Gemini's features within the Math Tuner app. If you encounter any issues, refer to the support section on the Gemini website.
+## 步驟二：建立 API Key (金鑰)
+
+1. 進入 AI Studio 主畫面後，請將視線移到畫面的**左側導覽列**。
+2. 找到並點擊 **「Get API key」** (取得 API 金鑰) 這個選項。
+
+3. 在畫面中央，點擊醒目的藍色按鈕 **「Create API key」** (建立 API 金鑰)。
+
+4. 系統會跳出一個對話框，詢問你要在哪個 Google Cloud 專案下建立。對於本專題，請直接點擊 **「Create API key in a new project」** (在一個新專案中建立)。
+5. 請稍候幾秒鐘，系統正在背景為你配置免費資源。
+
+## 步驟三：複製並妥善保存金鑰
+
+1. 建立完成後，畫面上會彈出一串由英文字母與數字組成的長字串（通常以 `AIza` 開頭）。
+2. **立刻點擊旁邊的「Copy (複製)」按鈕**。
+
+3. 請將這串金鑰妥善保存在你的本機電腦中（例如存在一個只有你自己知道的純文字檔裡，或是密碼管理器中）。一旦你關閉這個視窗，基於安全理由，你將無法再次看到完整的金鑰，只能重新生成一把新的。
+
+## 步驟四：本地端環境變數設定與測試
+
+為了確保你的程式碼能抓到這把鑰匙，請在你的作業系統中設定環境變數：
+
+* **Windows 使用者 (命令提示字元):**
+  ```cmd
+  set GEMINI_API_KEY=你的金鑰字串貼在這裡
